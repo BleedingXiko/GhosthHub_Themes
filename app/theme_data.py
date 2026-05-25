@@ -62,6 +62,7 @@ def build_theme_catalog(page_size=DEFAULT_PAGE_SIZE):
             records.append({
                 "slug": theme["slug"],
                 "name": theme["name"],
+                "colors": theme["colors"],
                 "description": theme.get("description") or "",
                 "tags": theme.get("tags") or [],
                 "tags_display": theme.get("tags_display") or "",

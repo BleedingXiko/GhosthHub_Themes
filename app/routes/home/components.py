@@ -202,16 +202,79 @@ class ThemeVirtualList(Component):
         if self._ready:
             return None
         index = self._index()
-        self._records = index.get("records") or []
+        self._records = []
+        
+        # Populate initial records from page 0 themes so the list is immediately interactive
+        initial_themes = self._initial_pages().get("0") or []
+        offset = 0
+        for theme in initial_themes:
+            name_val = theme.get("name") or ""
+            desc_val = theme.get("description") or ""
+            auth_val = theme.get("author") or ""
+            tags_list = theme.get("tags") or []
+            tags_str = tags_list.join(" ")
+            searchable = (name_val + " " + desc_val + " " + auth_val + " " + tags_str).toLowerCase()
+            self._records.push({
+                "slug": theme["slug"],
+                "name": theme["name"],
+                "colors": theme["colors"],
+                "description": theme.get("description") or "",
+                "tags": theme.get("tags") or [],
+                "tags_display": theme.get("tags_display") or "",
+                "author": theme.get("author") or "",
+                "page": 0,
+                "offset": offset,
+                "search": searchable,
+            })
+            offset = offset + 1
+            
         self._filtered_records = self._records
-        self._pages = self._initial_pages()
+        self._pages = browser.Object.assign({}, self._initial_pages())
         self._loading_pages = {}
         self._failed_pages = {}
         self._search_query = ""
         self._active_slug = ""
         self._active_name = ""
         self._ready = True
+        
+        # Start background fetch of full index
+        self._fetch_full_index()
         return None
+
+    async def _fetch_full_index(self):
+        try:
+            response = await browser.fetch(self._theme_data_url("index.json"))
+            data = await response.json()
+            full_records = data.get("records") or []
+            
+            # Update records list
+            self._records = full_records
+            
+            # Pre-cache all page arrays using our loaded records since they now contain colors!
+            new_pages = browser.Object.create(None)
+            for record in full_records:
+                page_key = self._page_key(record.get("page") or 0)
+                page_list = browser.Reflect.get(new_pages, page_key)
+                if not page_list:
+                    page_list = []
+                    browser.Reflect.set(new_pages, page_key, page_list)
+                page_list.push(record)
+                
+            self._pages = browser.Object.assign({}, self._pages, new_pages)
+            
+            # Re-apply filtering if the user is already searching
+            if self._search_query:
+                self._filtered_records = [r for r in self._records if self._theme_matches(r, self._search_query)]
+            else:
+                self._filtered_records = self._records
+                
+            self.virtual_scroll.reset()
+            
+            # Notify parent module to update status bars
+            if self.module:
+                self.module._sync_status(self._search_query)
+        except Exception as e:
+            print("Failed to fetch full index", e)
 
     def on_start(self):
         self._ensure_ready()
@@ -392,8 +455,18 @@ class ThemeVirtualList(Component):
                 ui.div(
                     ui.span("by " + (theme.get("author") or ""), class_="theme-card__author")
                         if theme.get("author") else None,
-                    ui.span(theme.get("tags_display") or "", class_="theme-card__tags")
-                        if theme.get("tags_display") else None,
+                    ui.span(
+                        [
+                            ui.button(
+                                tag,
+                                type="button",
+                                data_role="tag",
+                                data_tag=tag,
+                                class_="theme-card__tag-btn",
+                            ) for tag in (theme.get("tags") or [])
+                        ],
+                        class_="theme-card__tags",
+                    ) if theme.get("tags") else None,
                     class_="theme-card__meta",
                 ),
                 ui.div(

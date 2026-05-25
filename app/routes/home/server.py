@@ -8,8 +8,15 @@ class HomeController(Controller):
 
     def load(self):
         index, themes = build_theme_catalog()
+        minimal_index = {
+            "version": index.get("version", 1),
+            "page_size": index.get("page_size", DEFAULT_PAGE_SIZE),
+            "total": index.get("total", 0),
+            "pages": index.get("pages") or [],
+            "records": [],
+        }
         return {
-            "theme_index": index,
+            "theme_index": minimal_index,
             "initial_pages": {
                 "0": themes[:DEFAULT_PAGE_SIZE],
             },

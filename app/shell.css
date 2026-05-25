@@ -4,15 +4,69 @@
   --background-color: #121212;
   --surface-color: #1e1e2e;
   --text-primary: #ffffff;
+  --btn-primary-fg: #ffffff;
 
+  /* Mapped derived variables from GhostHub's themeColors.js */
+  --primary-color-light: color-mix(in srgb, var(--primary-color) 85%, #ffffff);
+  --primary-color-dark: color-mix(in srgb, var(--primary-color) 85%, #000000);
+  --accent-color-light: color-mix(in srgb, var(--accent-color) 85%, #ffffff);
+  --background-color-dark: color-mix(in srgb, var(--background-color) 95%, #000000);
+  --background-color-light: color-mix(in srgb, var(--background-color) 90%, #ffffff);
   --text-secondary: color-mix(in srgb, var(--text-primary) 70%, transparent);
-  --text-tertiary: color-mix(in srgb, var(--text-primary) 45%, transparent);
-  --border-soft: color-mix(in srgb, var(--text-primary) 12%, transparent);
-  --border-strong: color-mix(in srgb, var(--accent-color) 38%, transparent);
-  --surface-raised: color-mix(in srgb, var(--surface-color) 92%, var(--text-primary) 8%);
-  --surface-pressed: color-mix(in srgb, var(--surface-color) 80%, var(--text-primary) 4%);
-  --surface-glass: color-mix(in srgb, var(--surface-color) 82%, transparent);
-  --accent-soft: color-mix(in srgb, var(--accent-color) 18%, transparent);
+  --text-tertiary: color-mix(in srgb, var(--text-primary) 50%, transparent);
+  --card-background: var(--surface-color);
+  --card-hover: color-mix(in srgb, var(--surface-color) 88%, var(--text-primary) 12%);
+  --overlay-color: color-mix(in srgb, var(--background-color) 80%, transparent);
+  --divider-color: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --divider-color-light: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  --gh-surface-solid: color-mix(in srgb, var(--surface-color) 98%, transparent);
+  --gh-surface-glass: color-mix(in srgb, var(--surface-color) 90%, transparent);
+  --gh-surface-glass-strong: color-mix(in srgb, var(--surface-color) 96%, transparent);
+  --gh-surface-pressed: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --gh-border-soft: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --gh-border-strong: color-mix(in srgb, var(--accent-color) 34%, transparent);
+  --gh-overlay-strong: color-mix(in srgb, var(--background-color) 82%, transparent);
+  --gh-overlay-immersive: color-mix(in srgb, var(--background-color) 94%, transparent);
+  --gh-overlay-gradient-bottom: linear-gradient(transparent, color-mix(in srgb, var(--background-color) 82%, transparent));
+  
+  --btn-secondary-bg: color-mix(in srgb, var(--surface-color) 96%, transparent);
+  --btn-secondary-bg-hover: color-mix(in srgb, var(--surface-color) 88%, var(--text-primary) 12%);
+  --btn-secondary-fg: var(--text-primary);
+  --btn-secondary-border: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  
+  --btn-ghost-bg-hover: color-mix(in srgb, var(--accent-color) 10%, transparent);
+  --btn-ghost-fg: color-mix(in srgb, var(--text-primary) 70%, transparent);
+  --btn-ghost-border: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --btn-icon-bg-hover: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  
+  --pill-bg: color-mix(in srgb, var(--surface-color) 72%, transparent);
+  --pill-border: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --pill-fg: color-mix(in srgb, var(--text-primary) 70%, transparent);
+  --pill-hover-bg: color-mix(in srgb, var(--accent-color) 14%, transparent);
+  --pill-hover-fg: var(--text-primary);
+  --pill-hover-border: color-mix(in srgb, var(--accent-color) 34%, transparent);
+  --pill-active-fg: var(--btn-primary-fg);
+  
+  --input-bg: color-mix(in srgb, var(--surface-color) 90%, transparent);
+  --input-border: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --input-fg: var(--text-primary);
+  
+  --modal-bg: color-mix(in srgb, var(--surface-color) 96%, transparent);
+  --modal-border: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  
+  --card-bg: color-mix(in srgb, var(--surface-color) 90%, transparent);
+  --card-border: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  
+  --theme-soft-accent: color-mix(in srgb, var(--primary-color) 78%, var(--accent-color) 22%);
+  --theme-soft-accent-muted: color-mix(in srgb, var(--theme-soft-accent) 16%, transparent);
+
+  /* Legacy layout variable mappings for fallback compatibility */
+  --border-soft: var(--gh-border-soft);
+  --border-strong: var(--gh-border-strong);
+  --surface-raised: var(--btn-secondary-bg-hover);
+  --surface-pressed: var(--gh-surface-pressed);
+  --surface-glass: var(--gh-surface-glass);
+  --accent-soft: var(--btn-ghost-bg-hover);
   --accent-deep: color-mix(in srgb, var(--accent-color) 70%, var(--background-color) 30%);
 
   color-scheme: dark;
