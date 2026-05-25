@@ -3,6 +3,8 @@
 .sprag/
 # Static build output (CI builds + deploys this; no need to track it)
 dist/
+# Generated theme data chunks; CI regenerates these before building.
+app/static/theme-data/
 # Optimized output from `sprag pack`
 dist-pack/
 # Per-run dev artifacts

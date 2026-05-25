@@ -1,6 +1,6 @@
 from sprag import Screen, hydrate
 
-from .components import ThemeGallery
+from .components import ThemeGalleryShell
 from .modules import ThemeGalleryModule
 
 
@@ -10,4 +10,4 @@ class HomeScreen(Screen):
     def render(self, data):
         module = self.module(ThemeGalleryModule)
         module.set_state(data)
-        return hydrate(ThemeGallery, module=module)
+        return hydrate(ThemeGalleryShell, module=module)

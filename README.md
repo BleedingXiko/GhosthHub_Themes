@@ -53,6 +53,7 @@ Open the URL printed in the terminal.
 ## Build a static bundle
 
 ```bash
+python .github/scripts/build_theme_index.py
 sprag build static
 ```
 

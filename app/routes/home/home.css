@@ -1,4 +1,6 @@
 .gallery {
+  display: flex;
+  flex-direction: column;
   max-width: 1280px;
   margin: 0 auto;
   padding: 3rem 1.5rem 6rem;
@@ -129,6 +131,10 @@
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
+.gallery__search-clear[hidden] {
+  display: none;
+}
+
 .gallery__search-clear:hover {
   background: var(--surface-pressed);
   color: var(--text-primary);
@@ -196,6 +202,10 @@
   animation: gallery-active-in 0.25s ease;
 }
 
+.gallery__active[hidden] {
+  display: none;
+}
+
 @keyframes gallery-active-in {
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -234,15 +244,41 @@
   height: 12px;
 }
 
-/* ----- Main grid ----- */
+/* ----- Virtualized gallery ----- */
 
-.gallery__main {
-  display: block;
+.gallery__list-slot {
+  order: 3;
+  min-height: 260px;
+}
+
+.theme-list,
+.gallery__virtual-scroller {
+  width: 100%;
+}
+
+.gallery__virtual-chunk {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.gallery[data-empty="true"] .gallery__list-slot {
+  display: none;
+}
+
+.gallery[data-empty="false"] .gallery__empty--search {
+  display: none;
+}
+
+.gallery[data-empty="true"] .gallery__empty--search {
+  display: flex;
 }
 
 /* ----- Empty state ----- */
 
 .gallery__empty {
+  order: 3;
   border: 1px dashed var(--border-soft);
   border-radius: 18px;
   padding: 3rem 2rem;
@@ -273,6 +309,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.25rem;
+  min-height: 238px;
   background: var(--surface-color);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
@@ -282,6 +319,15 @@
     border-color 0.2s ease,
     box-shadow 0.25s ease,
     background-color 0.4s ease;
+}
+
+.theme-card--loading {
+  pointer-events: none;
+}
+
+.theme-card--loading .theme-card__name,
+.theme-card--loading .theme-card__desc {
+  opacity: 0.62;
 }
 
 .theme-card::after {
@@ -329,6 +375,26 @@
   border-radius: 10px;
   border: 1px solid var(--border-soft);
   transition: transform 0.18s ease;
+}
+
+.theme-card__skeleton-swatch {
+  aspect-ratio: 1 / 1.05;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  background:
+    linear-gradient(
+      90deg,
+      var(--surface-pressed),
+      color-mix(in srgb, var(--surface-pressed) 70%, var(--text-primary) 8%),
+      var(--surface-pressed)
+    );
+  background-size: 220% 100%;
+  animation: theme-card-loading 1.15s ease-in-out infinite;
+}
+
+@keyframes theme-card-loading {
+  from { background-position: 120% 0; }
+  to   { background-position: -120% 0; }
 }
 
 .theme-card:hover .theme-card__swatch {
