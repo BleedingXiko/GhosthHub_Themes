@@ -1,0 +1,14 @@
+{
+  "name": "Oasis",
+  "colors": {
+    "primary": "#163e6d",
+    "accent": "#5d56f5",
+    "background": "#141619",
+    "surface": "#1c2127",
+    "text": "#ebedf0"
+  },
+  "version": "1.0",
+  "description": "Deep navy stillness with an indigo pulse.",
+  "tags": ["dark", "blue", "purple"],
+  "author": "BleedingXiko"
+}

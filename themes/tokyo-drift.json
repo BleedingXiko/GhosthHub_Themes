@@ -1,0 +1,14 @@
+{
+  "name": "Tokyo Drift",
+  "colors": {
+    "primary": "#1f1f2e",
+    "accent": "#ff3d7f",
+    "background": "#0c0c14",
+    "surface": "#191926",
+    "text": "#f7f7ff"
+  },
+  "version": "1.0",
+  "description": "Neon-soaked nights, drifting through cherry-pink rain.",
+  "tags": ["dark", "neon", "pink"],
+  "author": "ghosthub-themes"
+}

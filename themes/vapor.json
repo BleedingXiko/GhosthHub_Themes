@@ -1,0 +1,14 @@
+{
+  "name": "Vapor",
+  "colors": {
+    "primary": "#3a2154",
+    "accent": "#f8a8e0",
+    "background": "#15091f",
+    "surface": "#241338",
+    "text": "#fbe4ff"
+  },
+  "version": "1.0",
+  "description": "Soft purples with a bubblegum accent for late-night vibes.",
+  "tags": ["dark", "purple", "pastel"],
+  "author": "ghosthub-themes"
+}

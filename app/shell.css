@@ -1,0 +1,103 @@
+:root {
+  --primary-color: #2d3250;
+  --accent-color: #f05454;
+  --background-color: #121212;
+  --surface-color: #1e1e2e;
+  --text-primary: #ffffff;
+
+  --text-secondary: color-mix(in srgb, var(--text-primary) 70%, transparent);
+  --text-tertiary: color-mix(in srgb, var(--text-primary) 45%, transparent);
+  --border-soft: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--accent-color) 38%, transparent);
+  --surface-raised: color-mix(in srgb, var(--surface-color) 92%, var(--text-primary) 8%);
+  --surface-pressed: color-mix(in srgb, var(--surface-color) 80%, var(--text-primary) 4%);
+  --surface-glass: color-mix(in srgb, var(--surface-color) 82%, transparent);
+  --accent-soft: color-mix(in srgb, var(--accent-color) 18%, transparent);
+  --accent-deep: color-mix(in srgb, var(--accent-color) 70%, var(--background-color) 30%);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--background-color);
+  color: var(--text-primary);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 12% -10%, color-mix(in srgb, var(--primary-color) 35%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, color-mix(in srgb, var(--accent-color) 22%, transparent), transparent 55%),
+    var(--background-color);
+  background-attachment: fixed;
+}
+
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site__main {
+  flex: 1;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+button {
+  color: inherit;
+}
+
+code {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, "Cascadia Code", monospace;
+  font-size: 0.88em;
+  color: var(--text-primary);
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+svg.icon {
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}

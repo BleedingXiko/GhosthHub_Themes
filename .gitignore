@@ -1,0 +1,76 @@
+# ─── SPRAG ─────────────────────────────────────────────────────────────────
+# Codegen workspace + types stub
+.sprag/
+# Static build output (CI builds + deploys this; no need to track it)
+dist/
+# Optimized output from `sprag pack`
+dist-pack/
+# Per-run dev artifacts
+.sprag-dev/
+
+# ─── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+build/
+develop-eggs/
+eggs/
+.eggs/
+sdist/
+wheels/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# Tool caches
+.mypy_cache/
+.pyright/
+.pytype/
+.ruff_cache/
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+
+# ─── Env / secrets ─────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# ─── Node (only if any tooling pulls it in) ────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ─── Editor / IDE ──────────────────────────────────────────────────────────
+.idea/
+.vscode/
+.zed/
+.cursor/
+*.swp
+*.swo
+*~
+
+# ─── OS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini

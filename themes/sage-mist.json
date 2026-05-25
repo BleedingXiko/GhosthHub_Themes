@@ -1,0 +1,14 @@
+{
+  "name": "Sage Mist",
+  "colors": {
+    "primary": "#3d5a4c",
+    "accent": "#a8c5a0",
+    "background": "#0f1612",
+    "surface": "#1a241f",
+    "text": "#e8f0e9"
+  },
+  "version": "1.0",
+  "description": "Quiet greens for low-light reading hours.",
+  "tags": ["dark", "green", "muted"],
+  "author": "ghosthub-themes"
+}

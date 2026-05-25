@@ -1,0 +1,37 @@
+name: Theme request
+description: Suggest a theme you'd like to see in the gallery (or that you want help building).
+title: "[theme] "
+labels: ["theme-request"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Theme name
+      placeholder: e.g. Tokyo Drift
+    validations:
+      required: true
+  - type: textarea
+    id: vibe
+    attributes:
+      label: Vibe / inspiration
+      description: A few words, a mood board, screenshots — whatever helps.
+    validations:
+      required: true
+  - type: textarea
+    id: colors
+    attributes:
+      label: Color ideas (optional)
+      description: Any hex codes or palette references you already have in mind.
+      placeholder: |
+        primary:    #...
+        accent:     #...
+        background: #...
+        surface:    #...
+        text:       #...
+  - type: checkboxes
+    id: build
+    attributes:
+      label: Are you planning to build it yourself?
+      options:
+        - label: Yes — I'll open a PR once the issue gets feedback
+        - label: No — looking for someone else to build it

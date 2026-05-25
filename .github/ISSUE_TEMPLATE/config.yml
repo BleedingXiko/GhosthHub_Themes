@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GhostHub (the media server)
+    url: https://github.com/BleedingXiko/GhostHub/issues
+    about: Bug reports or feature requests for GhostHub itself belong on the GhostHub repo, not this themes gallery.

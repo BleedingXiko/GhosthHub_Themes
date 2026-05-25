@@ -1,0 +1,42 @@
+name: Bug report (gallery site)
+description: Something is broken on the themes gallery website itself.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bugs in **GhostHub** itself (the media server) belong on the [GhostHub repo](https://github.com/BleedingXiko/GhostHub/issues), not here.
+        This issue type is only for the themes gallery website.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the gallery
+        2. Click ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / OS
+      placeholder: e.g. Firefox 124 on macOS 14
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output (optional)
+      render: text
