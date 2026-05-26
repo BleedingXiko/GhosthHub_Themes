@@ -6,7 +6,7 @@ The site is a static SPRAG app deployed to GitHub Pages. Every `.json` file in `
 
 ## Try a theme
 
-1. Open the gallery: https://bleedingxiko.github.io/GhosthHub_Themes/
+1. Open the gallery: https://bleedingxiko.github.io/GhostHub_Themes/
 2. Click **Preview** on any card — the whole page re-skins so you can see it live.
 3. Click **Copy** to put the GhostHub-importable JSON on your clipboard.
 4. In GhostHub: settings → theme builder → **Paste JSON** → save.
@@ -62,7 +62,7 @@ Output lands in `dist/`.
 ## Project layout
 
 ```
-GhosthHub_Themes/
+GhostHub_Themes/
 ├── app/                  # SPRAG app (gallery UI)
 │   ├── routes/home/      # the single page
 │   ├── shell.html        # body fragment + slot

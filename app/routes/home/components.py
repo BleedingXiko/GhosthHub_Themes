@@ -92,7 +92,7 @@ class ThemeGalleryShell(Component):
                     ),
                     ui.a(
                         "How to contribute ->",
-                        href="https://github.com/BleedingXiko/GhosthHub_Themes#contributing-a-theme",
+                        href="https://github.com/BleedingXiko/GhostHub_Themes#contributing-a-theme",
                         class_="gallery__cta",
                         target="_blank",
                         rel="noopener",
@@ -145,7 +145,7 @@ class ThemeGalleryShell(Component):
                     ),
                     ui.a(
                         "Contribute ->",
-                        href="https://github.com/BleedingXiko/GhosthHub_Themes#contributing-a-theme",
+                        href="https://github.com/BleedingXiko/GhostHub_Themes#contributing-a-theme",
                         class_="gallery__cta",
                         target="_blank",
                         rel="noopener",
